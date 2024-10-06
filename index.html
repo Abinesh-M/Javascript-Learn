@@ -62,6 +62,7 @@
       border-radius: 5px;
       display: flex;
       justify-content: space-between;
+      align-items: center;
     }
 
     .todo-item.completed {
@@ -69,13 +70,26 @@
       color: gray;
     }
 
-    .delete-btn {
+    .delete-btn, .complete-btn {
       background-color: red;
       border: none;
       color: white;
       padding: 5px;
       border-radius: 5px;
       cursor: pointer;
+      margin-left: 5px;
+    }
+
+    .complete-btn {
+      background-color: #28a745;
+    }
+
+    .complete-btn:hover {
+      background-color: #218838;
+    }
+
+    .delete-btn:hover {
+      background-color: #d9534f;
     }
   </style>
 </head>
