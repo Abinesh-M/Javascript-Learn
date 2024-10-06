@@ -6,6 +6,9 @@ const todoList = document.querySelector('.todo-list');
 //add event listener to the button
 todoButton.addEventListener('click', addTask);
 
+//add event listener to the task list (for event delegation)
+todoList.addEventListener('click', handleTaskAction);
+
 //Function to add a task
 function addTask(event){
     event.preventDefault(); //Prevent form from submitting
@@ -30,4 +33,20 @@ function addTask(event){
 
     //clear the input field
     todoInput.value = '';
+}
+
+//function to handle task actions (complete and delete)
+function handleTaskAction(e){
+    const item = e.target;
+
+    //Delete task
+    if (item.classList.contains('delete-btn')){
+        const task = item.parentElement;
+        task.remove(); //remove the task item
+    }
+
+    //mark task as complete
+    if (item.tagName == 'LI'){
+        item.classList.toggle('compeleted'); //toggle the 'completed' class
+    }
 }
